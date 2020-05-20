@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Food Order</title>
+<body>
+<div class="container">
+    <h1>Midterm Survey</h1>
+
+    <form action="#" method="post" class="form-horizontal">
+
+        <!-- get food -->
+        <div class="form-group">
+            <label for="name" class="col-sm-2 control-label">Name</label>
+
+            <div class="col-sm-4">
+                <input class="form-control" type="text" name="name" id="name">
+            </div>
+        </div>
+
+        <!-- get meal -->
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Check all that Apply</label><br>
+
+            <div>
+                <repeat group="{{ @questions }}" value="{{ @question }}" >
+                    <input type="checkbox" name="question[]"  value="{{ @question }}">      {{ @question }}
+                <br>
+                </repeat>
+            </div>
+        </div><br>
+
+        <div class="col-xs-3 ">
+            <input class="form-control btn btn-default"
+                   type="submit" value="Submit">
+        </div>
+    </form>
+</div>
+</body>
+</html>
