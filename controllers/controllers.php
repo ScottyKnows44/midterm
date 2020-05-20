@@ -20,11 +20,14 @@ class Controllers
         $questions = getMidtermQuestions();
 
         if($_SERVER['REQUEST_METHOD'] == 'POST'){
-            if (!$this->$_POST['name'] == "") {
+
+            if ($this->$_POST['name'] == "") {
                 $this->_f3->set('errors["name"]', "Need a name.");
             }
-            if(in_array($this->$_POST['questions'], $questions) == false){
-                $this->_f3->set('errors["questions"]', "Need to select all that apply.");
+
+            if(!$this->$_POST['questions'] == null)
+            {
+                $this->_f3->set('errors["questions"]', "Please select all that apply.");
             }
 
             if(empty($this->_f3->get('errors'))){
@@ -34,6 +37,8 @@ class Controllers
                 $_SESSION['name'] = $_POST['name'];
                 $this->_f3->reroute('summary');
             }
+
+
 
         }
 
