@@ -23,7 +23,10 @@
 
             <div>
                 <repeat group="{{ @questions }}" value="{{ @question }}" >
-                    <input type="checkbox" name="question[]"  value="{{ @question }}">      {{ @question }}
+                    <input type="checkbox" name="question[]"  value="{{ @question }}">
+                    <check if="{{ @question == @selectedQuestion }}" >
+                    checked="checked"
+                </check>  {{ @question }}
                 <br>
                 </repeat>
             </div>
