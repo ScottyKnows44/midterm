@@ -2,7 +2,7 @@
 
 class Controllers
 {
-    private $_f3; // router
+    private $_f3;
 
     public function __construct($f3)
     {
