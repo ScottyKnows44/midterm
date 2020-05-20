@@ -8,10 +8,8 @@
 <h1>Midterm Survey</h1>
 <p>Thank you for taking our survey, {{ @SESSION.name }}</p>
 <h3>Your Answers: </h3>
-<p> {{ implode(@SESSION.questions, ", ") }}</p>
-<!--<check if="{{ !empty(@SESSION.question->getQuestions()) }}">
-    <p> {{ implode(@SESSION.question, ", ") }}</p>
+<check if="{{ !empty(@SESSION.order->getQuestions()) }}">
+    <p> {{ implode(@SESSION.order->getQuestions(), ", ") }}</p>
 </check>
--->
 </body>
 </html>

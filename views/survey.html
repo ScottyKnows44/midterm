@@ -15,6 +15,11 @@
             <div class="col-sm-4">
                 <input class="form-control" type="text" name="name" id="name">
             </div>
+            <span class="err">
+                 <check if="{{ isset(@errors['name']) }}">
+                     {{ @errors['name'] }}
+                 </check>
+            </span>
         </div>
 
         <!-- get meal -->
@@ -22,13 +27,16 @@
             <label class="col-sm-2 control-label">Check all that Apply</label><br>
 
             <div>
-                <repeat group="{{ @questions }}" value="{{ @question }}" >
-                    <input type="checkbox" name="question[]"  value="{{ @question }}">
-                    <check if="{{ @question == @selectedQuestion }}" >
-                    checked="checked"
-                </check>  {{ @question }}
-                <br>
+                <repeat group="{{ @questions }}" value="{{ @question }}">
+                    <label><input type="checkbox"
+                                  name="questions[]"
+                                  value="{{ @question }}"> {{ ucfirst(@question) }}</label><br>
                 </repeat>
+                <span class="err">
+                 <check if="{{ isset(@errors['questions']) }}">
+                     {{ @errors['questions'] }}
+                 </check>
+            </span>
             </div>
         </div><br>
 
